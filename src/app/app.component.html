@@ -1,1 +1,17 @@
-<h1> Rx angular </h1>
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Rx angular</mat-card-title>
+            <mat-card-subtitle>Ejemplo de ngrx</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ ($data | async)?.msg?.text }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="SpanishMsg()">Cambiar a Español</button>
+            <button mat-raised-button (click)="EnglishMsg()" color="primary">change Inglish</button>
+        </mat-card-actions>
+    </mat-card>
+    
+</div>
+

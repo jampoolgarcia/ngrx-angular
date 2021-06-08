@@ -4,31 +4,44 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 // routing
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module'; 
 
 // ngrx
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from './store/app.reducer';
+
+// Material
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // components
 import { AppComponent } from './app.component';
-import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+
+    // core
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    StoreModule.forRoot({
 
+    // ngrx
+    StoreModule.forRoot({
+      msg: reducer
     }),
     StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
+      maxAge: 15,
     }),
+
+    // Material
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
